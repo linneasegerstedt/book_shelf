@@ -1,0 +1,25 @@
+.no-results {
+  color: red;
+  padding-left: 20px;
+}
+
+.book-card {
+  border: 1px solid black;
+  margin: 20px;
+  width: 50%;
+}
+
+.button-wrapper {
+  text-align: center;
+  border: 1px solid;
+}
+
+.add {
+  background-color: green;
+  border: green;
+}
+
+.remove {
+  background-color: red;
+  border: red;
+}

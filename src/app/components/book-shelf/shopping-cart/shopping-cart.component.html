@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="cart-wrapper" (click)="clicked = !clicked">
+    <div class="cart-icon-text">
+      <i class="fa fa-shopping-cart"></i>
+      <div class="cart-text" *ngIf="!clicked && books.length > 0">Click to see content</div>
+      <div class="cart-text" *ngIf="clicked && books.length > 0">Click to hide content</div>
+    </div>
+    <div>{{ books.length }}</div>
+  </div>
+  <div class="card-container" *ngIf="clicked">
+    <div *ngFor="let book of books" class="card">
+      {{ book.title }} - {{ book.price }} <div class="remove" (click)="removeBook(book)"> x </div>
+    </div>
+  </div>
+  <button class="btn btn-primary checkout-button" (click)="toCheckout()">Checkout</button>
+</div>

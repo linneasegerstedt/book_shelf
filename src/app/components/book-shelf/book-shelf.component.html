@@ -1,0 +1,9 @@
+<app-search (onSearch)="setResults($event)"></app-search>
+<app-book-list 
+  (onBooksReceived)="setBooks($event)" 
+  (addToCart)="addToCart($event)" 
+  (removeFromCart)="removeFromCart($event)" 
+  [filteredBooks]="results" 
+  [searchPerformed]="searchPerformed">
+</app-book-list>
+<app-shopping-cart [books]="booksToCart" (onBookRemoved)="removeFromCart($event)"></app-shopping-cart>

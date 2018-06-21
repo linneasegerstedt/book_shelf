@@ -1,0 +1,11 @@
+<div class="search-container">
+  <div [formGroup]="searchForm">
+    <input formControlName="search" class="form-control"/>
+  </div>
+  <button 
+    class="btn btn-primary" 
+    type="submit" (click)="send()" 
+    [class.valid]="searchForm.valid" 
+    [class.invalid]="!searchForm.valid">Search
+  </button>
+</div>
