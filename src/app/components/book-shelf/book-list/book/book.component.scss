@@ -7,6 +7,15 @@
     margin: auto;
     padding-right: 4px;
   }
+  .card-body {
+    .price-wrapper {
+      display: flex;
+      &__amount {
+        padding-right: 5px;
+        font-weight: bold;
+      }
+    }
+  }
   .price {
     color: goldenrod;
   }

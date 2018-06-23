@@ -20,19 +20,27 @@ export class OrderSummaryComponent implements OnInit {
 
   ngOnInit() {
     this.books = this.bookService.books;
-    this.totalPrice = this.getTotalPrice();
     this.getCommercialOffers(this.books);
+    this.totalPrice = this.getTotalPrice(this.books);
     this.getOptimalOffer(this.totalPrice, this.offers);
   }
 
-  getTotalPrice(): number {
-    this.books.map((book) => {
-      this.totalPrice += Number(book.price);
+  getPrice() {
+    return this.totalPrice;
+  }
+
+  getTotalPrice(books: Array<Book>): number {
+    books.map((book) => {
+      if (!book.amount) {
+        this.totalPrice += Number(book.price);
+      } else {
+        this.totalPrice += (Number(book.price) * Number(book.amount));
+      }
     });
     return this.totalPrice;
   }
 
-  getCommercialOffers(books: Array<Book>): void {
+  getCommercialOffers(books: Array<Book>): void{
     this.bookService.getCommercialOffers(books)
       .subscribe((res: Array<Offer>) => {
         this.offers = res['offers'];

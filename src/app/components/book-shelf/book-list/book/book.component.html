@@ -1,7 +1,10 @@
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="{{ book.cover }}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="price">{{ book.price }}€</h5>
+    <div class="price-wrapper">
+      <div *ngIf="amount > 1" class="price-wrapper__amount">{{ amount }} * </div>
+      <h5 class="price">{{ book.price }}€</h5>
+    </div>
     <h5 class="card-title">{{ book.title }}</h5>
     <p (click)="showInfo =! showInfo" *ngIf="!showInfo">Show Info</p>
     <p (click)="showInfo =! showInfo" *ngIf="showInfo">Hide Info</p>

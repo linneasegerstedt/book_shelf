@@ -3,13 +3,16 @@
   &__title {
     text-align: center;
   }
-  app-book {
-    /deep/
-    .card {
-      width: 50%;
-      margin: auto;
-      .card-body {
+  &__book-container {
+    position: relative;
+    app-book {
+      /deep/
+      .card {
+        width: 50%;
         margin: auto;
+        .card-body {
+          margin: auto;
+        }
       }
     }
   }

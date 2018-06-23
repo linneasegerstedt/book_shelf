@@ -43,15 +43,33 @@ export class BookShelfComponent implements OnInit {
   }
 
   addToCart($event: any) {
-    this.booksToCart.push($event);
+    if (this.booksToCart.indexOf($event) > -1) {
+      this.booksToCart.map((book) => {
+        if (book === $event) {
+          if (isNaN(book.amount)) {
+            book.amount = 2;
+          } else {
+            book.amount += 1;
+          }
+        }
+      });
+    } else {
+      this.booksToCart.push($event);
+    }
     this.bookService.books = this.booksToCart;
+    this.bookService.cartUpdated.next(this.booksToCart);
   }
 
   removeFromCart($event: any) {
     const index = this.booksToCart.indexOf($event);
     if (index > -1) {
-      this.booksToCart.splice(index, 1);
+      if (!isNaN(this.booksToCart[index].amount) && this.booksToCart[index].amount > 1) {
+        this.booksToCart[index].amount = this.booksToCart[index].amount - 1;
+      } else {
+        this.booksToCart.splice(index, 1);
+      }
       this.bookService.books = this.booksToCart;
+      this.bookService.cartUpdated.next(this.booksToCart);
     }
   }
 

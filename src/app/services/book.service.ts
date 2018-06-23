@@ -4,10 +4,12 @@ import { HttpClient } from '@angular/common/http';
 
 import { Book } from '../models/book.model';
 import { Offer } from '../models/offer.model';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class BookService {
   books: Array<Book> = [];
+  cartUpdated: Subject<Array<Book>> = new Subject();
 
   constructor(
     private http: HttpClient

@@ -5,11 +5,11 @@
       <div class="container__cart-wrapper__icon-text__cart-text" *ngIf="!clicked && books.length > 0">Click to see content</div>
       <div class="container__cart-wrapper__icon-text__cart-text" *ngIf="clicked && books.length > 0">Click to hide content</div>
     </div>
-    <div>{{ books.length }}</div>
+    <div>{{ getTotalAmount() }}</div>
   </div>
   <div class="card-container" *ngIf="clicked">
     <div *ngFor="let book of books" class="card-container__card">
-      {{ book.title }} - {{ book.price }}€ <div class="card-container__card__remove" (click)="removeBook(book)"> x </div>
+      <span *ngIf="book.amount">{{ book.amount }}* </span>{{ book.title }} - {{ book.price }}€ <div class="card-container__card__remove" (click)="removeBook(book)"> x </div>
     </div>
   </div>
   <button class="btn btn-primary checkout-button" (click)="toCheckout()">Checkout</button>

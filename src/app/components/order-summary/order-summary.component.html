@@ -1,7 +1,9 @@
 <div class="order-summary">
   <h2 class="order-summary__title">Order Recap</h2>  
   <div *ngFor="let book of books">
-    <app-book [book]="book"></app-book>
+    <div class="order-summary__book-container">
+      <app-book [book]="book" [amount]="book.amount"></app-book>
+    </div>
   </div>
   <div class="order-summary__price">
     <div class="order-summary__price__info">
