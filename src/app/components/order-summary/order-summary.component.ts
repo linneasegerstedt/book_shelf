@@ -6,7 +6,7 @@ import { Offer } from '../../models/offer.model';
 @Component({
   selector: 'app-order-summary',
   templateUrl: './order-summary.component.html',
-  styleUrls: ['./order-summary.component.css']
+  styleUrls: ['./order-summary.component.scss']
 })
 export class OrderSummaryComponent implements OnInit {
   books: Array<Book> = [];

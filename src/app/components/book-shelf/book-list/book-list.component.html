@@ -1,19 +1,25 @@
 <div class="no-results" *ngIf="searchPerformed && filteredBooks.length < 1">No results found - please try another search</div>
+<div class="results" *ngIf="searchPerformed && filteredBooks.length > 0">{{ filteredBooks.length }} {{ getResultString(filteredBooks.length) }}</div>
 <div *ngIf="filteredBooks.length < 1">
-  <div class="book-card" *ngFor="let book of bookList">
-    <app-book [book]="book"></app-book>
-    <div class="button-wrapper">
-      <button class="btn btn-primary add" (click)="addBook(book)">+</button>
-      <button class="btn btn-primary remove" (click)="removeBook(book)">-</button>
+  <div class="container">
+    <div class="book-card" *ngFor="let book of bookList">
+      <app-book [book]="book"></app-book>
+      <div class="book-card__button-wrapper">
+        <button class="btn btn-primary book-card__button-wrapper__add" (click)="addBook(book)">+</button>
+        <button class="btn btn-primary book-card__button-wrapper__remove" (click)="removeBook(book)">-</button>
+      </div>
     </div>
   </div>
+
 </div>
 <div *ngIf="filteredBooks.length > 0">
-  <div class="book-card" *ngFor="let book of filteredBooks">
-    <app-book [book]="book"></app-book>
-    <div class="button-wrapper">
-      <button class="btn btn-primary add" (click)="addBook(book)">+</button>
-      <button class="btn btn-primary remove" (click)="removeBook(book)">-</button>
+  <div class="container">
+    <div class="book-card" *ngFor="let book of filteredBooks">
+      <app-book [book]="book"></app-book>
+      <div class="book-card__button-wrapper">
+        <button class="btn btn-primary book-card__button-wrapper__add" (click)="addBook(book)">+</button>
+        <button class="btn btn-primary book-card__button-wrapper__remove" (click)="removeBook(book)">-</button>
+      </div>
     </div>
   </div>
 </div>

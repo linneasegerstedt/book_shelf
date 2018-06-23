@@ -1,0 +1,31 @@
+.no-results {
+  color: red;
+  padding-left: 20px;
+}
+
+.results {
+  padding-left: 20px;
+}
+
+.container {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  .book-card {
+    border: 1px solid black;
+    margin: 20px;
+    width: 250px;
+    &__button-wrapper {
+      text-align: center;
+      border: 1px solid;
+      &__add {
+        background-color: green;
+        border: green;  
+      }
+      &__remove {
+        background-color: red;
+        border: red;
+      }     
+    }
+  }
+}

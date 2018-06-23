@@ -5,7 +5,7 @@ import { BookService } from '../../../services/book.service';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
   bookList: Array<Book> = [];
@@ -39,6 +39,10 @@ export class BookListComponent implements OnInit {
 
   removeBook(book: Book): void {
     this.removeFromCart.emit(book);
+  }
+
+  getResultString(nbResults: number): string {
+    return nbResults > 1 ? 'results found' : 'result found';
   }
 
 }

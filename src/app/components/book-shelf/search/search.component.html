@@ -1,11 +1,11 @@
 <div class="search-container">
   <div [formGroup]="searchForm">
-    <input formControlName="search" class="form-control"/>
+    <input formControlName="search" class="form-control" placeholder="Please enter a book title"/>
   </div>
   <button 
     class="btn btn-primary" 
     type="submit" (click)="send()" 
-    [class.valid]="searchForm.valid" 
-    [class.invalid]="!searchForm.valid">Search
+    [class.search-container--valid]="searchForm.valid" 
+    [class.search-container--invalid]="!searchForm.valid">Search
   </button>
 </div>

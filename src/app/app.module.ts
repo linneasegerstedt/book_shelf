@@ -15,6 +15,7 @@ import { BookListComponent } from './components/book-shelf/book-list/book-list.c
 import { ShoppingCartComponent } from './components/book-shelf/shopping-cart/shopping-cart.component';
 import { BookComponent } from './components/book-shelf/book-list/book/book.component';
 import { BookService } from './services/book.service';
+import { OrderGuard } from './guards/order.guard';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BookService } from './services/book.service';
     ReactiveFormsModule
   ],
   providers: [
-    BookService
+    BookService,
+    OrderGuard
   ],
   bootstrap: [AppComponent]
 })

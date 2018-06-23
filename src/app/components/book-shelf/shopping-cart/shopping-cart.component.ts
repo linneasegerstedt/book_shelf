@@ -5,7 +5,7 @@ import { Book } from '../../../models/book.model';
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
   @Input() books: Array<Book> = [];
@@ -14,7 +14,7 @@ export class ShoppingCartComponent implements OnInit {
 
   constructor(
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
   }

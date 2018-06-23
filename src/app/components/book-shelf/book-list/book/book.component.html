@@ -1,5 +1,10 @@
-<div class="book-item">
-  <div class="row">Title: <div class="title">{{ book.title }}</div></div>
-  <div class="row">ISBN: <div class="isbn">{{ book.isbn }}</div></div>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ book.cover }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="price">{{ book.price }}€</h5>
+    <h5 class="card-title">{{ book.title }}</h5>
+    <p (click)="showInfo =! showInfo" *ngIf="!showInfo">Show Info</p>
+    <p (click)="showInfo =! showInfo" *ngIf="showInfo">Hide Info</p>
+    <p *ngIf="showInfo" class="card-text">{{ book.synopsis }}</p>
+  </div>
 </div>
-

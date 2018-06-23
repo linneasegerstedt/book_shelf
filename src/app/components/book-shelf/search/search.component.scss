@@ -1,0 +1,14 @@
+.search-container {
+  display: flex;
+  flex-direction: row;
+  margin: 5% 30%;
+  input {
+    width: 363px;
+  }
+  &--valid {
+    background-color: green !important;
+  }
+  &--invalid {
+    background-color: grey !important;
+  }
+}
