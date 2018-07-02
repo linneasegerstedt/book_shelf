@@ -31,7 +31,7 @@ export class ShoppingCartComponent implements OnInit {
 
   getTotalAmount() {
     let amount = this.books.length;
-    this.books.map((book) => {
+    this.books.forEach((book) => {
       if (book.amount) {
         amount += book.amount - 1;
       }

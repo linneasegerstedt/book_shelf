@@ -20,17 +20,15 @@ export class BookListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.bookList = this.getBooks();
+    this.getBooks();
   }
 
-  getBooks(): Array<Book> {
+  getBooks(): void {
     this.bookService.getBooks()
-      // .skipWhile(books => books == null)
       .subscribe((books: Array<Book>) => {
         this.bookList = books;
         this.onBooksReceived.emit(this.bookList);
       });
-    return this.bookList;
   }
 
   addBook(book: Book): void {
